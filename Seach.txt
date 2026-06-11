@@ -1,0 +1,26 @@
+##A chunk is a smaller piece of a file or document that gets indexed separately for retrieval.
+In the Retrieval API, when you add a file to a vector store, OpenAI automatically:
+1. splits the file into chunks,
+2. creates embeddings for each chunk,
+3. indexes them for semantic search.
+ 
+##What chunking means
+Chunking helps the system find the most relevant passages instead of searching only whole documents. 
+By default, the docs say files are split into:
+-- max_chunk_size_tokens = 800
+-- chunk_overlap_tokens = 400
+-- That overlap helps preserve context between neighboring chunks.
+ 
+##When to use chunking
+You usually use chunking when:
+-- your documents are long,
+-- you want better retrieval accuracy,
+-- you want the model to find specific sections rather than entire files,
+-- you’re building search or RAG-style workflows.
+ 
+##How to use it
+For the Retrieval API and file search, chunking is typically handled automatically when you upload a file to a vector store. You generally don’t need to manually chunk unless you want custom control over how text is split.
+Practical guidance
+-- Use smaller chunks when you want precise matches.
+-- Use larger chunks when answers need more surrounding context.
+-- Keep some overlap so important information isn’t split across boundaries.
